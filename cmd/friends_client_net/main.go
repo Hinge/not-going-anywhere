@@ -175,7 +175,7 @@ func main() {
             log.Print("get posts")
 
             var posts *pb.Posts
-            log.Printf("here on 85 %d", len(os.Args))
+            log.Infof("here on 85 %d", len(os.Args))
             if len(os.Args) < 3 {
                 resposts, err := client.GetAllPosts(ctx, &pb.Empty{})
                 if err != nil {
@@ -238,6 +238,6 @@ func main() {
 
             log.Printf("registration success! %s, %s", rperson.GetUname(), rperson.GetId())
         default:
-            log.Printf("no such command: %s", cmd)
+            glog.Infof("no such command: %s", cmd)
     }
 }
