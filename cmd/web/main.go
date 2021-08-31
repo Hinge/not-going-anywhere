@@ -128,7 +128,7 @@ func listPersonPosts(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	personId := vars["person"]
 
-	log.Printf("recieved requestion for person %s", personId)
+	log.Logf("recieved requestion for person %s", personId)
 
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte("<h1>Working</h1>"))
