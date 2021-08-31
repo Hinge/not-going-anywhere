@@ -80,7 +80,7 @@ func indexPage(w http.ResponseWriter, r *http.Request) {
 	if auth, ok := session.Values["authenticated"].(bool); !ok || !auth {
 		http.Redirect(w, r, "/login", 303)
 	} else {
-		http.Redirect(w, r, next, 303)
+		jsonResponse(w, 204, nil)
 	}
 }
 
@@ -238,7 +238,7 @@ func registerUser(w http.ResponseWriter, r *http.Request) {
 			next = "/posts"
 		}
 
-		http.Redirect(w, r, next, 303)
+		jsonResponse(w, 204, nil)
 	} else {
 		tmpl, err := template.ParseFiles("templates/register.html")
 		if err != nil {
@@ -300,7 +300,7 @@ func loginUser(w http.ResponseWriter, r *http.Request) {
 			next = "/posts"
 		}
 
-		http.Redirect(w, r, next, 303)
+		jsonResponse(w, 204, nil)
 	} else {
 		tmpl, err := template.ParseFiles("templates/login.html")
 		if err != nil {
